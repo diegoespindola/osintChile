@@ -17,7 +17,6 @@ def busquedaRutSii(rut):
     print('  --==<Datos desde Sii>==--')
     print('  Si tiene inicio de actividades deberia estar acá')
     #vamos por el captcha
-#    urlSiiGetCaptcha = 'https://zeus.sii.cl/cvc_cgi/stc/CViewCaptcha.cgi'
     urlSiiGetCaptcha = 'uggcf://mrhf.fvv.py/pip_ptv/fgp/PIvrjPncgpun.ptv'
     paramCaptcha = urllib.parse.urlencode({'oper':0})
     paramCaptcha = paramCaptcha.encode('ascii')
@@ -36,7 +35,6 @@ def busquedaRutSii(rut):
           'txt_captcha' : captchaB64 })
 
     paramDatos = paramDatos.encode('ascii')
-    #urlSiiDatos = 'https://zeus.sii.cl/cvc_cgi/stc/getstc'
     urlSiiDatos = 'uggcf://mrhf.fvv.py/pip_ptv/fgp/trgfgp'
     
     page = requests.post(url=codecs.decode(urlSiiDatos, 'rot_13'), data=paramDatos)
