@@ -1,4 +1,4 @@
-# osintChile
+# OSINTchile V 0.1 Beta
 Busqueda automatica de informacion de personas en chile. Basado en web scrapping y algunas cosillas mas<br>
 <br>
 Como lo Uso: <br>
