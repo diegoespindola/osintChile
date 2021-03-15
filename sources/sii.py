@@ -28,7 +28,7 @@ def busquedaRutSii(rut):
 
     paramDatos = urllib.parse.urlencode({
           'RUT' : rut.split('-')[0],
-          'DV' : rut.split('-')[1],
+          'DV' : str(rut.split('-')[1]).upper,
           'PRG' : 'STC',
           'OPC' : 'NOR',
           'txt_code' : txtCaptchaDecoded[36:40] ,
@@ -41,10 +41,7 @@ def busquedaRutSii(rut):
     
     soup = BeautifulSoup(page.text, 'html.parser')
     divs = soup.find_all('div')
-
-    print('     Rut                      :', divs[7].get_text())
-    print('     Razon Social             :', divs[5].get_text())
-
+ 
     regexp = re.compile("Contribuyente presenta Inicio de Actividades: (.*?)<", re.MULTILINE)
     match = regexp.search(page.text)
     if match:
@@ -53,6 +50,8 @@ def busquedaRutSii(rut):
         contribuyente = ""
     
     if(contribuyente=='SI'):
+        print('     Rut                      :', divs[7].get_text())
+        print('     Razon Social             :', divs[5].get_text())
 
         trList = soup.find('table').find_all('tr')
         for actividad in trList[1:]:
@@ -77,4 +76,3 @@ if __name__ == "__main__":
         parser.print_help()
     else:
         busquedaRutSii(parametros.rut)
-
