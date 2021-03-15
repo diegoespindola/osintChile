@@ -28,7 +28,7 @@ def busquedaRutSii(rut):
 
     paramDatos = urllib.parse.urlencode({
           'RUT' : rut.split('-')[0],
-          'DV' : str(rut.split('-')[1]).upper,
+          'DV' : str(rut.split('-')[1]) if rut.split('-')[1].isnumeric() else str(rut.split('-')[1]).upper(),
           'PRG' : 'STC',
           'OPC' : 'NOR',
           'txt_code' : txtCaptchaDecoded[36:40] ,
