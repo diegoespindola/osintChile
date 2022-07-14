@@ -10,11 +10,14 @@ def busqueda(rut):
 
 def busquedaNombrerutyFirma(rut):
     params = {'term': rutUtils.formatRut(rut)}
-
+    headers = {'Alt-Used':'www.nombrerutyfirma.com',
+                'Content-Type':'application/x-www-form-urlencoded',
+                'Referer':'https://www.nombrerutyfirma.com/'
+                }
     urlNryfRoted = 'uggcf://jjj.abzoerehglsvezn.pbz/ehg'
     urlNryf = codecs.decode(urlNryfRoted, 'rot_13')
 
-    page = requests.post(url=urlNryf, params=params)
+    page = requests.post(url=urlNryf, params=params, headers=headers)
     print('  --==<Datos desde NombreRutyFirma>==--')
     print('  Si esta inscrito en SERVEL deberia aparecer aca')
     if page.status_code == 200:

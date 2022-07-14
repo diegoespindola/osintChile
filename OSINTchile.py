@@ -5,6 +5,7 @@ import sources.soap as soap
 import sources.sii as sii
 import sources.volanteomaleta as volanteomaleta
 import sources.numverify as numverify
+import sources.masterchileapkBday as mchaBday
 
 parser = argparse.ArgumentParser(prog='OSINTchile', description='Busqueda automatica en fuentes abiertas (y no tan abiertas) de chile')
 parser.add_argument('-rut',  type=str, nargs='?', help='Rut de la persona a buscar, con formato: 11111111-1 ')
@@ -22,6 +23,7 @@ if parametros.rut:
     nrf.busqueda(rut = parametros.rut )
     sii.busqueda(rut = parametros.rut)
     volanteomaleta.busqueda(rut = parametros.rut)
+    mchaBday.busqueda(rut = parametros.rut)
 if parametros.patente:
     print('---En Construccion, se aceptan contribuciones---')
     soap.busqueda(patente = parametros.patente)

@@ -3,14 +3,18 @@ import argparse
 import json
 from utils import rut as rutUtils
 from bs4 import BeautifulSoup
+import codecs
 
 def busqueda(rut):
     busquedaVolanteomaleta(rut)
 
 def busquedaVolanteomaleta(rut):
     params = {'term': rutUtils.formatRut(rut)}
+    urlVoMRoted = 'uggcf://jjj.ibynagrbznyrgn.pbz/ehg'
+    urlVoM = codecs.decode(urlVoMRoted, 'rot_13')
 
-    page = requests.post('https://www.volanteomaleta.com/rut', params=params)
+    
+    page = requests.post(urlVoM, params=params)
     print('  --==<Datos desde VolanteoMaleta>==--')
     if page.status_code == 200:
         soup = BeautifulSoup(page.content, 'html.parser')
