@@ -11,7 +11,7 @@ def busquedaMasterChileApkBday(rut):
     urlMChapkBdayRoted = 'uggcf://znfgrepuvyrncx.vasb/jf-oveguqnli3/ncv/?ehg='
     urlMChapkBday = codecs.decode(urlMChapkBdayRoted, 'rot_13')  + rut
     print('  ')
-    print('  --==< Datos desde masterchileapk -birthday >==--')
+    print('  --==< Datos de - Cumpleaños >==--')
 
     page  = requests.get(url=urlMChapkBday)
     if page.status_code==200:

@@ -4,6 +4,7 @@ import json
 from utils import rut as rutUtils
 from bs4 import BeautifulSoup
 import codecs
+import sources.multas as multas
 
 def busqueda(rut):
     busquedaVolanteomaleta(rut)
@@ -33,6 +34,9 @@ def busquedaVolanteomaleta(rut):
                     print('     Año                       :', datosTD[6].get_text())
                     ''' print('     Nombre a Rutificador      :', datosTD[7].get_text())   '''
                     print(" ")
+
+                    multas.busqueda(patente = datosTD[0].get_text())
+
                 else:
                     print('  No hay datos')
         else:
