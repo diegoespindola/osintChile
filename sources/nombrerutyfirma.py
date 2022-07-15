@@ -1,6 +1,4 @@
 import requests
-import argparse
-import json
 from utils import rut as rutUtils
 from bs4 import BeautifulSoup
 import codecs

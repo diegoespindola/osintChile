@@ -1,4 +1,3 @@
-import argparse
 import requests
 import json
 import codecs

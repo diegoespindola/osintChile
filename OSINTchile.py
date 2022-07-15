@@ -27,5 +27,8 @@ if parametros.rut:
 if parametros.patente:
     print('---En Construccion, se aceptan contribuciones---')
     soap.busqueda(patente = parametros.patente)
+    volanteomaleta.busqueda(patente= parametros.patente)
 if parametros.telefono:
+    print('---En Construccion, se aceptan contribuciones---')
     numverify.busqueda(telefono = parametros.telefono)
+    
