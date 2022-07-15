@@ -60,13 +60,13 @@ def busquedaVolanteomaleta(rut=None, patente=None):
                     if tr:
                         datosTD = tr.find_all('td')
                         print('     RUT                       :', datosTD[4].get_text())
+                        print('     Nombre                    :', datosTD[7].get_text())
                         print('     Patente                   :', datosTD[0].get_text())
                         print('     Tipo                      :', datosTD[1].get_text())
                         print('     Marca                     :', datosTD[2].get_text())
                         print('     Modelo                    :', datosTD[3].get_text())
                         print('     Nro. Motor                :', datosTD[5].get_text())
                         print('     Año                       :', datosTD[6].get_text())
-                        ''' print('     Nombre a Rutificador      :', datosTD[7].get_text())   '''
                         print(" ")
 
                         multas.busqueda(patente = datosTD[0].get_text())
