@@ -1,7 +1,10 @@
 # OSINTchile V 0.1 Beta
 Busqueda automatica de informacion de personas en chile. Basado en web scrapping y algunas cosillas mas<br>
+## Disclaimer:
+Este script es solo para propositos educativos y para poner en la mesa el tema de la privacidad de los datos<br>
+¿que tan protegidos estan los datos que le entregas a las empresas?<br>
 <br>
-Como lo Uso: <br>
+## Como lo Uso: <br>
   Sin parametros te muestra una ayuda<br>
 <br>
 $ python3 OSINTchile.py<br>
