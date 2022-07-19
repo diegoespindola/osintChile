@@ -1,3 +1,4 @@
+import myClasses.Classes
 import argparse
 import sources.nombrerutyfirma as nrf
 import sources.salud as salud
@@ -6,6 +7,7 @@ import sources.sii as sii
 import sources.volanteomaleta as volanteomaleta
 import sources.numverify as numverify
 import sources.masterchileapkBday as mchaBday
+
 
 parser = argparse.ArgumentParser(prog='OSINTchile', description='Busqueda automatica en fuentes abiertas (y no tan abiertas) de chile')
 parser.add_argument('-rut',  type=str, nargs='?', help='Rut de la persona a buscar, con formato: 11111111-1 ')
@@ -19,8 +21,15 @@ if not(parametros.rut) and  not(parametros.patente) and  not(parametros.telefono
     parser.print_help()
 
 if parametros.rut:
-    salud.busqueda(rut = parametros.rut)
-    nrf.busqueda(rut = parametros.rut )
+    objetivo = myClasses.Classes.Objetivo(parametros.rut)
+    objetivo, errCode, errReason = salud.busqueda(objetivo = objetivo)
+    if(errCode!=200):
+        print('Error en centro de salud 1:',errCode, errReason)
+    else:
+        print(objetivo.toJSON())    
+    nrf.busqueda(rut = parametros.rut, objetivo = objetivo )
+    print(objetivo.toJSON())
+    exit(0)
     sii.busqueda(rut = parametros.rut)
     volanteomaleta.busqueda(rut = parametros.rut)
     mchaBday.busqueda(rut = parametros.rut)
