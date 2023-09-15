@@ -1,5 +1,4 @@
 requests==2.25.1
 beautifulsoup4==4.9.3
 Pillow
-tempfile  # No es necesario añadirlo, ya que forma parte de la biblioteca estándar de Python
 climage
