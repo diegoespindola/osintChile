@@ -26,13 +26,13 @@ def busquedaCeluzador(telefono):
         # Display info
         if phone_info['fuente']:
             for fuente in phone_info['fuente']:
-                print(f"Nombre: {fuente['nombre']}")
+                print(f"     Nombre: {fuente['nombre']}")
         else:
-            print("Lo sentimos, No encontramos información en la fuente principal.")
+            print("     Lo sentimos, No encontramos información en la fuente principal.")
 
         if phone_info['whatsapp']:
             tiene_whatsapp = 'Si tiene' if phone_info['whatsapp']['tiene_whatsapp'] else 'No tiene'
-            print(f"WhatsApp: {tiene_whatsapp}")
+            print(f"     WhatsApp: {tiene_whatsapp}")
 
             if phone_info['whatsapp']['foto_perfil']:
                 profile_pic_url = phone_info['whatsapp']['foto_perfil']
@@ -50,16 +50,16 @@ def busquedaCeluzador(telefono):
                 image.save(ruta, format="JPEG")
 
                 whatsapp_status = json.loads(phone_info['whatsapp']['estado'])
-                print(f"Estado: {whatsapp_status['status']}")
-                print(f"Ultima Actualización: {whatsapp_status['setAt']}")
+                print(f"     Estado: {whatsapp_status['status']}")
+                print(f"     Ultima Actualización: {whatsapp_status['setAt']}")
         else:
-            print("WhatsApp: No tiene")
+            print("     WhatsApp: No tiene")
 
-        print(phone_info['_cva'])
+        #print(phone_info['_cva'])
 
         return ruta  # Return the path where the image is saved
     else:
-        print("El número indicado es inválido, inténtalo nuevamente.")
+        print("     El número indicado es inválido, inténtalo nuevamente.")
         return None
 
 if __name__ == "__main__":
