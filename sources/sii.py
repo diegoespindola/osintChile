@@ -2,6 +2,7 @@ import argparse
 import re
 import requests
 import urllib.parse
+from urllib3.exceptions import InsecureRequestWarning 
 import json
 import base64
 from bs4 import BeautifulSoup
@@ -13,7 +14,7 @@ def busqueda(rut):
 def busquedaRutSii(rut):
 
     
-    #Fuente: https[://]zeus[.]sii[.]cl[/]cvc[/]stc[/]stc[.]html
+    requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
     print('  --==<Datos desde Sii>==--')
     print('  Si tiene inicio de actividades deberia estar acá')
     #vamos por el captcha
@@ -21,7 +22,7 @@ def busquedaRutSii(rut):
     paramCaptcha = urllib.parse.urlencode({'oper':0})
     paramCaptcha = paramCaptcha.encode('ascii')
 
-    htmlGetCaptcha = requests.post(url=codecs.decode(urlSiiGetCaptcha, 'rot_13'),data=paramCaptcha).text
+    htmlGetCaptcha = requests.post(url=codecs.decode(urlSiiGetCaptcha, 'rot_13'),data=paramCaptcha, verify=False).text
     captchaJson = json.loads(htmlGetCaptcha)
     captchaB64 = captchaJson.get('txtCaptcha')
     txtCaptchaDecoded = base64.b64decode(captchaB64.encode('ascii')).decode('ascii')
@@ -37,7 +38,7 @@ def busquedaRutSii(rut):
     paramDatos = paramDatos.encode('ascii')
     urlSiiDatos = 'uggcf://mrhf.fvv.py/pip_ptv/fgp/trgfgp'
     
-    page = requests.post(url=codecs.decode(urlSiiDatos, 'rot_13'), data=paramDatos)
+    page = requests.post(url=codecs.decode(urlSiiDatos, 'rot_13'), data=paramDatos, verify=False)
     
     soup = BeautifulSoup(page.text, 'html.parser')
     divs = soup.find_all('div')
