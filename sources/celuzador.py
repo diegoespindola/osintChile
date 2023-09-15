@@ -2,22 +2,24 @@ import argparse
 import requests
 import json
 from PIL import Image
-import tempfile
+import codecs
 import os
 
 def busqueda(telefono):
     print(' ')
     print('  --==< Datos desde Celuzador >==--')
     ruta = busquedaCeluzador(telefono)
-    print(f'     Foto de perfil para el número {telefono} guardada en "{ruta}"')
+    if ruta :
+        print(f'     Foto de perfil para el número {telefono} guardada en "{ruta}"')
 
 def busquedaCeluzador(telefono):
-    BASE_URL = "https://celuzador.online/celuzadorApi.php"
+    urlceluzadorRoted = 'uggcf://pryhmnqbe.bayvar/pryhmnqbeNcv.cuc'
+    urlceluzador = codecs.decode(urlceluzadorRoted, 'rot_13')
 
     headers = {
-        'User-Agent': 'CeludeitorAPI-TuCulitoSacaLlamaAUFAUF'
+        'User-Agent': 'CeludeitorAPI-TuCulitoSacaLlamaAUFAUF '
     }
-    response = requests.post(BASE_URL, data={"txttlf": telefono}, headers=headers)
+    response = requests.post(urlceluzador, data={"txttlf": telefono}, headers=headers)
     data = response.json()
 
     if not data['error']:
