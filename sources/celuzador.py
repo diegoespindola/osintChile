@@ -9,7 +9,7 @@ def busqueda(telefono):
     print(' ')
     print('  --==< Datos desde Celuzador >==--')
     ruta = busquedaCeluzador(telefono)
-    if ruta :
+    if ruta:
         print(f'     Foto de perfil para el número {telefono} guardada en "{ruta}"')
 
 def busquedaCeluzador(telefono):
@@ -17,7 +17,7 @@ def busquedaCeluzador(telefono):
     urlceluzador = codecs.decode(urlceluzadorRoted, 'rot_13')
 
     headers = {
-        'User-Agent': 'CeludeitorAPI-TuCulitoSacaLlamaAUFAUF '
+        'User-Agent': 'CeludeitorAPI-TuCulitoSacaLlamaAUFAUF'
     }
     response = requests.post(urlceluzador, data={"txttlf": telefono}, headers=headers)
     data = response.json()
@@ -57,20 +57,10 @@ def busquedaCeluzador(telefono):
         else:
             print("     WhatsApp: No tiene")
 
-        #print(phone_info['_cva'])
-
         return ruta  # Return the path where the image is saved
     else:
         print("     El número indicado es inválido, inténtalo nuevamente.")
         return None
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(prog='OSINTchile', description='Búsqueda automática en fuentes abiertas (y no tan abiertas) de Chile')
-    parser.add_argument('-telefono', type=str, nargs='?', help='Teléfono a buscar, con formato: 56999999999')
-
-    parametros = parser.parse_args()
-
-    if not parametros.telefono:
-        parser.print_help()
-    else:
-        busqueda(parametros.telefono)
+    print('Esto no se ejecuta solo, es para ser llamado desde el programa principal')
