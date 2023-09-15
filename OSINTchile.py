@@ -6,6 +6,7 @@ import sources.sii as sii
 import sources.volanteomaleta as volanteomaleta
 import sources.numverify as numverify
 import sources.masterchileapkBday as mchaBday
+import sources.celuzador as celuzador
 
 parser = argparse.ArgumentParser(prog='OSINTchile', description='Busqueda automatica en fuentes abiertas (y no tan abiertas) de chile')
 parser.add_argument('-rut',  type=str, nargs='?', help='Rut de la persona a buscar, con formato: 11111111-1 ')
@@ -31,4 +32,5 @@ if parametros.patente:
 if parametros.telefono:
     print('---En Construccion, se aceptan contribuciones---')
     numverify.busqueda(telefono = parametros.telefono)
+    celuzador.busqueda(telefono=parametros.telefono)
     
