@@ -9,7 +9,7 @@ def busqueda(telefono):
     print(' ')
     print('  --==< Datos desde Celuzador >==--')
     ruta = busquedaCeluzador(telefono)
-    print(f'Foto de perfil para el número {telefono} guardada en "{ruta}"')
+    print(f'     Foto de perfil para el número {telefono} guardada en "{ruta}"')
 
 def busquedaCeluzador(telefono):
     BASE_URL = "https://celuzador.online/celuzadorApi.php"
