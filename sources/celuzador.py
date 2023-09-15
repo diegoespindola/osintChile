@@ -44,7 +44,7 @@ def busquedaCeluzador(telefono):
                     os.makedirs("./fotos")
 
                 # Define the path where the image will be saved
-                ruta = f"./fotos/{telefono}imagen.jpg"
+                ruta = f"./fotos/{telefono}.jpg"
 
                 # Save the image with the desired name
                 image.save(ruta, format="JPEG")
