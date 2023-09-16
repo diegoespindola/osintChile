@@ -22,6 +22,8 @@ def busquedaCeluzador(telefono):
     response = requests.post(urlceluzador, data={"txttlf": telefono}, headers=headers)
     data = response.json()
 
+    ruta = None  # Valor predeterminado para ruta
+
     if not data['error']:
         phone_info = json.loads(data['data'])
 
@@ -57,10 +59,10 @@ def busquedaCeluzador(telefono):
         else:
             print("     WhatsApp: No tiene")
 
-        return ruta  # Return the path where the image is saved
     else:
         print("     El número indicado es inválido, inténtalo nuevamente.")
-        return None
+
+    return ruta  # Devuelve el valor predeterminado si no se encontró información de WhatsApp
 
 if __name__ == "__main__":
     print('Esto no se ejecuta solo, es para ser llamado desde el programa principal')
