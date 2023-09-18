@@ -9,7 +9,7 @@ Este script es solo para propositos educativos y para poner en la mesa el tema d
 <br>
 $ python3 OSINTchile.py<br>
 usage: OSINTchile [-h] [-rut [RUT]] [-patente [PATENTE]]<br>
-                  [-telefono [TELEFONO]]<br>
+                  [-telefono [TELEFONO]] [-nombre]<br>
 
 Busqueda automatica en fuentes abiertas (y no tan abiertas) de chile<br>
 <br>
