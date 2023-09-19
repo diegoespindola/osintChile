@@ -21,11 +21,9 @@ def busquedaCeluzador(telefono):
     }
     response = requests.post(urlceluzador, data={"txttlf": telefono}, headers=headers)
     data = response.json()
-
     if not data['error']:
         phone_info = json.loads(data['data'])
 
-        # Display info
         if phone_info['fuente']:
             for fuente in phone_info['fuente']:
                 print(f"     Nombre: {fuente['nombre']}")
@@ -33,33 +31,28 @@ def busquedaCeluzador(telefono):
             print("     Lo sentimos, No encontramos información en la fuente principal.")
 
         if phone_info['whatsapp']:
-            tiene_whatsapp = 'Si tiene' if phone_info['whatsapp']['tiene_whatsapp'] else 'No tiene'
-            print(f"     WhatsApp: {tiene_whatsapp}")
+            if phone_info['whatsapp']['tiene_whatsapp'] :
+                tiene_whatsapp = 'Si tiene' if phone_info['whatsapp']['tiene_whatsapp'] else 'No tiene'
+                print(f"     WhatsApp: {tiene_whatsapp}")
+                
+                if phone_info['whatsapp']['foto_perfil']:
+                    profile_pic_url = phone_info['whatsapp']['foto_perfil']
+                    image_response = requests.get(profile_pic_url, stream=True)
+                    image = Image.open(image_response.raw)
 
-            if phone_info['whatsapp']['foto_perfil']:
-                profile_pic_url = phone_info['whatsapp']['foto_perfil']
-                image_response = requests.get(profile_pic_url, stream=True)
-                image = Image.open(image_response.raw)
+                    if not os.path.exists("./fotos"):
+                        os.makedirs("./fotos")
+                    ruta = f"./fotos/{telefono}.jpg"
+                    image.save(ruta, format="JPEG")
 
-                # Create a directory "./fotos" if it doesn't exist
-                if not os.path.exists("./fotos"):
-                    os.makedirs("./fotos")
-
-                # Define the path where the image will be saved
-                ruta = f"./fotos/{telefono}.jpg"
-
-                # Save the image with the desired name
-                image.save(ruta, format="JPEG")
-
-                whatsapp_status = json.loads(phone_info['whatsapp']['estado'])
-                print(f"     Estado: {whatsapp_status['status']}")
-                print(f"     Ultima Actualización: {whatsapp_status['setAt']}")
+                    whatsapp_status = json.loads(phone_info['whatsapp']['estado'])
+                    print(f"     Estado: {whatsapp_status['status']}")
+                    print(f"     Ultima Actualización: {whatsapp_status['setAt']}")
+            else:
+                print("     WhatsApp: No tiene")
         else:
             print("     WhatsApp: No tiene")
 
-        #print(phone_info['_cva'])
-
-        return ruta  # Return the path where the image is saved
     else:
         print("     El número indicado es inválido, inténtalo nuevamente.")
         return None
