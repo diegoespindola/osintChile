@@ -20,9 +20,7 @@ def busquedaMasterChileApkBday(rut):
         jsonDatosJWT = json.loads(datosxJWT.text)
         nbJWT = jsonDatosJWT['nb']
         exJWT = jsonDatosJWT['ex']
-        #message = {'option': 'rut','term': rut,'nbf': int(nbJWT),'exp': int(exJWT),}
         token = jwt.encode( payload = {'option': 'rut','term': rut,'nbf': int(nbJWT),'exp': int(exJWT),}, key = '[u+5b6L&uy?JGh-MUcKxh5qYJ,x[9ux}bqn{(?%{@j2QBH4gjVHAW?2', algorithm = 'HS256')
-        
         headers = {"Content-Type": "application/x-www-form-urlencoded"}
         data = {"params": token}
         urlResponseRUTroted = 'uggcf://rce.ncczbivy.bet/ncv/dhrel'
