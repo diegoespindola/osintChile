@@ -29,7 +29,6 @@ def busquedaMasterChileApkBday(rut):
 
         if responseRUT.status_code==200:
             datosJson = json.loads(responseRUT.text)
-            #print(datosJson)
             if datosJson[0]['status']==True:
                 print('     Nombre             :', datosJson[0]['nombre'])
                 print('     Edad               :', datosJson[0]['edad'])
