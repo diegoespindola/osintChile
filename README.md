@@ -1,27 +1,51 @@
-# OSINTchile V 0.1 Beta
-Busqueda automatica de informacion de personas en chile. Basado en web scrapping y algunas cosillas mas<br>
-## Disclaimer:
-Este script es solo para propositos educativos y para poner en la mesa el tema de la privacidad de los datos<br>
-¿que tan protegidos estan los datos que le entregas a las empresas?<br>
-<br>
-## Como lo Uso: <br>
-  Sin parametros te muestra una ayuda<br>
-<br>
-$ python3 OSINTchile.py<br>
-usage: OSINTchile [-h] [-rut [RUT]] [-patente [PATENTE]]<br>
-                  [-telefono [TELEFONO]]<br>
+Aquí tienes una versión mejorada y más atractiva del README:
 
-Busqueda automatica en fuentes abiertas (y no tan abiertas) de chile<br>
-<br>
-optional arguments:<br>
-  -h, --help            show this help message and exit<br>
-  -rut [RUT]            Rut de la persona a buscar, con formato: 11111111-1<br>
-  -patente [PATENTE]    Patente del vehiculo a buscar, con formato: aabb11<br>
-  -telefono [TELEFONO]  telefono a buscar, con formato: 56999999999<br>
-<br>
-<br>
-Ejemplos<br>
-$python3 OSINTchile.py -rut 3198442-4<br>
-$python3 OSINTchile.py -telefono 56955555555<br>
-$python3 OSINTchile.py -patente aabb11<br>
+---
 
+# OSINTChile v0.1 Beta
+
+**Automatización de la búsqueda de información personal en Chile**  
+*Basado en web scraping y otras técnicas avanzadas.*
+
+## Descargo de Responsabilidad
+
+Este script está diseñado exclusivamente con fines educativos y para generar conciencia sobre la privacidad de los datos en Chile.  
+¿Realmente están protegidos los datos que entregamos a las empresas?
+
+## ¿Cómo Usarlo?
+
+Ejecutar el script sin parámetros mostrará una guía de ayuda:
+
+```bash
+$ python3 OSINTchile.py
+```
+
+### Uso:
+```bash
+$ python3 OSINTchile.py [-h] [-rut [RUT]] [-patente [PATENTE]] [-telefono [TELEFONO]]
+```
+
+**Descripción:**  
+Automatiza la búsqueda de información en fuentes abiertas (y algunas menos abiertas) de Chile.
+
+**Argumentos Opcionales:**
+
+- `-h, --help`  
+  Muestra este mensaje de ayuda y termina la ejecución.
+
+- `-rut [RUT]`  
+  Busca información de una persona utilizando su RUT. Formato: `11111111-1`.
+
+- `-patente [PATENTE]`  
+  Busca información de un vehículo utilizando su patente. Formato: `aabb11`.
+
+- `-telefono [TELEFONO]`  
+  Busca información asociada a un número de teléfono. Formato: `56999999999`.
+
+### Ejemplos de Uso:
+
+```bash
+$ python3 OSINTchile.py -rut 3198442-4
+$ python3 OSINTchile.py -telefono 56955555555
+$ python3 OSINTchile.py -patente aabb11
+```
