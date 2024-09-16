@@ -1,7 +1,3 @@
-Aquí tienes una versión mejorada y más atractiva del README:
-
----
-
 # OSINTChile v0.1 Beta
 
 **Automatización de la búsqueda de información personal en Chile**  
